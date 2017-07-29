@@ -68,7 +68,6 @@
                 </c:forEach>
 
             </ul>
-            <%--<div class="padding-top:10px; padding-bottom:5px;margin:0px 0px 0px 0px;">--%>
         </div>
 
     </div>
@@ -85,7 +84,7 @@
                     <div class="icon-sale one "></div>
                     <h4>热门好书</h4>
                     <div class="activityMain ">
-                        <a href="book.action?bookId=${dashboardDto.topAllBooksList.get(0).getId()}">
+                        <a href="book.action?bookId=${dashboardDto.topAllBooksList.get(0).getId()}" >
                             <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(0).getPictureName()}"></img>
                         </a>
                     </div>
@@ -151,10 +150,13 @@
                     <c:forEach items="${map.value}" var="list">
 
                     <li>
-                        <div class="list ">
+                        <div class="list " >
                             <a href="book.action?bookId= ${list.id}">
-                                <img src="${dashboardDto.fileServerPrefix}${list.getPictureName()}"></img>
+                                <img src="${dashboardDto.fileServerPrefix}${list.getPictureName()}" height="200" width="200" ></img>
                                 <div class="pro-title "><c:out value="${list.bookName}"></c:out></div>
+
+                                <c:if test="${list.bookName.length() lt 14}"><br/></c:if>
+                                
                                 <div class="pro-title ">作者：<c:out value="${list.author}"></c:out></div>
                                 <div class="pro-title ">分类：<c:out value="${dashboardDto.categoryMap[map.key]}"></c:out></div>
                             </a>
