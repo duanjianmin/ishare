@@ -1,0 +1,11 @@
+
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôŽ‚ú8Ÿûè¤¼+
+Asquid:S1166"%Either log or rethrow this exception.(‹±ÃÆ8ÔÅó£¼+
+asquid:S2147"ECombine this catch with the one at line 148, which has the same body.(ï­£Ä8ÔÅó£¼+
+Fsquid:S1166"%Either log or rethrow this exception.(ÐÐ¹óúÿÿÿÿ8—ß¤ü»+
+fsquid:S1226"EIntroduce a new variable instead of reusing the parameter "bookName".(ÀÍúéøÿÿÿÿ8—ß¤ü»+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÔÅó£¼+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÔÅó£¼+
+Asquid:S1166"%Either log or rethrow this exception.(ï­£Ä8ÔÅó£¼+
+Usquid:S3400"9Remove this method and declare a constant for this value.(›¢Îì8ÔÅó£¼+
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8—ß¤ü»+

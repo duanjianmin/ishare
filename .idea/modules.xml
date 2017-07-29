@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/isharebook.iml" filepath="$PROJECT_DIR$/.idea/modules/isharebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/isharebook_main.iml" filepath="$PROJECT_DIR$/.idea/modules/isharebook_main.iml" group="isharebook" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/isharebook_test.iml" filepath="$PROJECT_DIR$/.idea/modules/isharebook_test.iml" group="isharebook" />
+    </modules>
+  </component>
+</project>

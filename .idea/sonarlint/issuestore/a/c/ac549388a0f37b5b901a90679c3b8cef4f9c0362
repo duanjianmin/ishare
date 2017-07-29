@@ -1,0 +1,10 @@
+
+Isquid:EmptyStatementUsageCheck"Remove this empty statement.(íğÆ½úÿÿÿÿ
+@squid:S2131"Use "Integer.toString" instead.(ò’‡Ãûÿÿÿÿ8™Ï»ü»+
+ˆsquid:S1488"gImmediately return this expression instead of assigning it to the temporary variable "topCategoryList".(îïƒÃùÿÿÿÿ8å˜±Òº+
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(à‚Ã8²íÁû»+
+Isquid:EmptyStatementUsageCheck"Remove this empty statement.(íğÆ½úÿÿÿÿ
+~squid:S1488"bImmediately return this expression instead of assigning it to the temporary variable "topAllList".(Ÿ„ÿü8å˜±Òº+
+Psquid:EmptyStatementUsageCheck"Remove this empty statement.(×éÇÆıÿÿÿÿ8™Ï»ü»+
+@squid:S2131"Use "Integer.toString" instead.(ò’‡Ãûÿÿÿÿ8çâù»+
+Psquid:EmptyStatementUsageCheck"Remove this empty statement.(×éÇÆıÿÿÿÿ8´Ïåù»+

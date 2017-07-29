@@ -1,0 +1,58 @@
+group 'com.ishare'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+//jar {
+//    baseName = 'gs-relational-data-access'
+//    version =  '0.1.0'
+//}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+    compile group: 'org.springframework', name: 'spring-aop', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '4.3.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.8.RELEASE'
+
+
+
+//hibernate jpa相关
+    compile group: 'org.jboss.spec.javax.transaction', name: 'jboss-transaction-api_1.2_spec', version: '1.0.1.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.2.Final'
+    //c3p0连接池
+    compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.2.2.Final'
+    //ehcahe二级缓存
+    compile group: 'org.hibernate', name: 'hibernate-ehcache', version: '5.2.2.Final'
+    //mysql
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.39'
+    //springData
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.10.3.RELEASE'
+    compile group: 'javax.servlet.jsp', name: 'jsp-api', version: '2.2'
+    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+
+
+
+//    testCompile("junit:junit")
+}
