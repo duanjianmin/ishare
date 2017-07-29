@@ -5,4 +5,7 @@ package com.service;
  */
 public class ConvertUtil {
 //    public static BookDto convert
+    public static int output(){
+        return 1;
+    }
 }
