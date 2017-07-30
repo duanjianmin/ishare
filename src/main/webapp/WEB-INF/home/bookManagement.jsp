@@ -68,8 +68,9 @@
                     <li>
                         <div class="list ">
                             <a href="book.action?bookId= ${book.id}">
-                                <img src="${categoryBookPageDto.fileServerPrefix}${book.getPictureName()}"></img>
+                                <img src="${categoryBookPageDto.fileServerPrefix}${book.getPictureName()}" height="200" width="200"></img>
                                 <div class="pro-title "><c:out value="${book.bookName}"></c:out></div>
+                                <c:if test="${book.bookName.length() lt 14}"><br/></c:if>
                                 <div class="pro-title ">作者：<c:out value="${book.author}"></c:out></div>
                                 <div class="pro-title ">分类：<c:out value="${categoryBookPageDto.categoryMap[book.bookCategoryId]}"></c:out></div>
                             </a>

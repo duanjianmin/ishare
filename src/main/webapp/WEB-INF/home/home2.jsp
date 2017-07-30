@@ -85,7 +85,7 @@
                     <h4>热门好书</h4>
                     <div class="activityMain ">
                         <a href="book.action?bookId=${dashboardDto.topAllBooksList.get(0).getId()}" >
-                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(0).getPictureName()}"></img>
+                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(0).getPictureName()}" height="300" width="200"></img>
                         </a>
                     </div>
                     <div class="info ">
@@ -98,7 +98,7 @@
                     <h4>热门好书</h4>
                     <div class="activityMain ">
                         <a href="book.action?bookId=${dashboardDto.topAllBooksList.get(1).getId()}">
-                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(1).getPictureName()}"></img>
+                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(1).getPictureName()}" height="300" width="200"></img>
                         </a>
                     </div>
                     <div class="info ">
@@ -111,7 +111,7 @@
                     <h4>热门好书</h4>
                     <div class="activityMain ">
                         <a href="book.action?bookId=${dashboardDto.topAllBooksList.get(2).getId()}">
-                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(2).getPictureName()}"></img>
+                            <img src="${dashboardDto.fileServerPrefix}${dashboardDto.topAllBooksList.get(2).getPictureName()}" height="300" width="200"</img>
                         </a>
                     </div>
                     <div class="info ">
@@ -123,7 +123,7 @@
                     <div class="icon-sale "></div>
                     <h4>广告</h4>
                     <div class="activityMain ">
-                        <img src="../images/dhwc.jpg"></img>
+                        <img src="../images/dhwc.jpg" height="300" width="200"></img>
                     </div>
 
                 </div>
@@ -156,7 +156,7 @@
                                 <div class="pro-title "><c:out value="${list.bookName}"></c:out></div>
 
                                 <c:if test="${list.bookName.length() lt 14}"><br/></c:if>
-                                
+
                                 <div class="pro-title ">作者：<c:out value="${list.author}"></c:out></div>
                                 <div class="pro-title ">分类：<c:out value="${dashboardDto.categoryMap[map.key]}"></c:out></div>
                             </a>

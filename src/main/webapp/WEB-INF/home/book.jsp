@@ -78,29 +78,24 @@
 <div class="shopMainbg">
     <div class="shopMain" id="shopmain">
 
-                <div class="am-g am-g-fixed flood method3 ">
-                    <ul class="am-thumbnails ">
-
-                        <li>
-                            <div class="list ">
-                                <a href="# ">
-                                    <img src="${bookDto.fileServerPrefix}${bookDto.getPictureName()}"></img>
-                                    <div class="pro-title "><c:out value="${bookDto.remark}"></c:out></div>
-                                    <div class="pro-title ">作者：<c:out value="${bookDto.author}"></c:out></div>
-                                    <div class="pro-title ">标签：<c:out value="${bookDto.label}"></c:out></div>
-                                    <div class="pro-title ">点击次数：<c:out value="${bookDto.downloadFrequency}"></c:out></div>
-                                </a>
-
-
-                                <c:forEach items="${bookDto.bookResourceDtoList}" var="bookResourceDto">
+                <table class="footer" style="font-size: 16px;color: #333;line-height: 36px;font-weight: 700;">
+                    <tr>
+                        <td>
+                            <a href="# ">
+                                <img src="${bookDto.fileServerPrefix}${bookDto.getPictureName()}" style="padding-top: 40px;"></img>
+                            </a>
+                        </td>
+                        <td>
+                            <div class="pro-title "><c:out value="${bookDto.remark}"></c:out></div>
+                            <div class="pro-title ">作者：<c:out value="${bookDto.author}"></c:out></div>
+                            <div class="pro-title ">标签：<c:out value="${bookDto.label}"></c:out></div>
+                            <div class="pro-title ">点击次数：<c:out value="${bookDto.downloadFrequency}"></c:out></div>
+                            <c:forEach items="${bookDto.bookResourceDtoList}" var="bookResourceDto">
                                 <div class="pro-title ">${bookResourceDto.resourceType} 格式：<a href="download.action?fileName=${bookResourceDto.resourceName}.${bookResourceDto.resourceType}">${bookResourceDto.resourceName}.${bookResourceDto.resourceType}</a></div>
-                                </c:forEach>
-
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
+                            </c:forEach>
+                        </td>
+                    </tr>
+                </table>
 
         <div class="footer ">
             <div class="footer-hd ">
