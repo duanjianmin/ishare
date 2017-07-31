@@ -25,7 +25,7 @@ public class BookNativeSql {
 	public static final String GET_CATEGORY_BOOKS ="select * from ishare.book a where a.bookCategoryId =:categoryId order by a.downloadFrequency desc limit :startNumber,:pageSize ;";
 
 	public static final String GET_SEARCH_BOOKS ="select * from ishare.book a where 1=1 \n" +
-			"AND IF(:bookName IS NULL,TRUE,a.bookName =:bookName)\n"+
+			"AND IF(:bookName IS NULL,TRUE,a.bookName like :bookNameExpression)\n"+
 			"order by a.downloadFrequency desc \n" +
 			"limit :startNumber,:pageSize ;";
 }

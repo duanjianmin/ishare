@@ -47,7 +47,7 @@
         <div class="search-bar pr">
             <a name="index_none_header_sysc" href="#"></a>
             <form action="search.action" method="get">
-                <input id="searchInput" name="bookName" type="text" placeholder="搜索" autocomplete="off">
+                <input id="searchInput" name="bookName" value ="${categoryBookPageDto.bookName}" type="text" placeholder="搜索" autocomplete="off">
                 <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
                 <input id="pageNumberId" name ="pageNumber" type="text" hidden value="1">
             </form>

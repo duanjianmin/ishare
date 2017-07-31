@@ -65,11 +65,11 @@ public class DashboardController {
 
     @RequestMapping(value="/search.action",method= RequestMethod.GET)
     public String book(@RequestParam("bookName")String bookName,@RequestParam("pageNumber")Integer pageNumber,Model model){
-        try {
-            bookName = new String(bookName.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            bookName = new String(bookName.getBytes("ISO-8859-1"), "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
 
         CategoryBookPageDto categoryPageDto = dashboardService.searchByBookName(bookName,pageNumber);
         model.addAttribute(categoryPageDto);

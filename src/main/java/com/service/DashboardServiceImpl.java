@@ -162,12 +162,12 @@ public class DashboardServiceImpl implements DashboardService {
 
         List<BookDto> bookDtoList = new ArrayList<>();
 
-
         Query query1 = entityManager.createNativeQuery(BookNativeSql.GET_SEARCH_BOOKS, Book.class);
         if("".equals(bookName)){
             bookName = null;
         }
         query1.setParameter("bookName",bookName);
+        query1.setParameter("bookNameExpression","%"+bookName+"%");
         query1.setParameter("startNumber",(pageNumber-1)*PAGE_SIZE);
         query1.setParameter("pageSize",PAGE_SIZE);
         List<Book> bookList = query1.getResultList();
@@ -178,7 +178,7 @@ public class DashboardServiceImpl implements DashboardService {
         if(null==bookName|| "".equals(bookName)){
             bookAll = bookRepository.findAll();
         } else{
-            bookAll = bookRepository.findByBookName(bookName);
+            bookAll = bookRepository.findByBookNameLike(bookName);
         }
         Double count = null!=bookAll?Double.valueOf(bookAll.size()+""):0;
         Integer lastPageNumber = (int) Math.ceil(count/PAGE_SIZE);;

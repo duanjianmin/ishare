@@ -1,6 +1,8 @@
 package com.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -12,5 +14,6 @@ public interface BookRepository extends JpaRepository<Book,Integer> {
 
     Book findById(Integer bookId);
 
-    List<Book> findByBookName(String bookName);
+    @Query(value = "select * from ishare.book b where b.bookName like %:bookName%", nativeQuery = true)
+    List<Book> findByBookNameLike(@Param("bookName")String bookName);
 }
