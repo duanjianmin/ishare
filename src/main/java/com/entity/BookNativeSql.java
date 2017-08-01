@@ -26,6 +26,16 @@ public class BookNativeSql {
 
 	public static final String GET_SEARCH_BOOKS ="select * from ishare.book a where 1=1 \n" +
 			"AND IF(:bookName IS NULL,TRUE,a.bookName like :bookNameExpression)\n"+
+			"AND IF(:author IS NULL,TRUE,a.author like :authorExpression)\n"+
+			"AND IF(:category IS NULL,TRUE,a.bookCategoryId = :category)\n"+
+			"AND IF(:usable IS NULL,TRUE,a.usable = :usable)\n"+
 			"order by a.downloadFrequency desc \n" +
 			"limit :startNumber,:pageSize ;";
+
+	public static final String GET_SEARCH_BOOKS_COUNT ="select COUNT(*) from ishare.book a where 1=1 \n" +
+			"AND IF(:bookName IS NULL,TRUE,a.bookName like :bookNameExpression)\n"+
+			"AND IF(:author IS NULL,TRUE,a.author like :authorExpression)\n"+
+			"AND IF(:category IS NULL,TRUE,a.bookCategoryId = :category)\n"+
+			"AND IF(:usable IS NULL,TRUE,a.usable = :usable)\n"+
+			"order by a.downloadFrequency desc " ;
 }

@@ -18,5 +18,7 @@ public interface DashboardService {
 
     CategoryBookPageDto searchByBookName(String bookName,Integer pageNumber);
 
+    CategoryBookPageDto searchByBookDto(BookDto bookDto,Integer pageNumber);
+
 
 }

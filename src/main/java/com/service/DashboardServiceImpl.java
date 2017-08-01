@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -156,32 +157,44 @@ public class DashboardServiceImpl implements DashboardService {
         return bookDto;
     }
 
-
     @Override
-    public CategoryBookPageDto searchByBookName(String bookName,Integer pageNumber) {
-
+    public CategoryBookPageDto searchByBookDto(BookDto dto,Integer pageNumber){
+        String bookName = dto.getBookName();
+        String author = dto.getAuthor();
+        Integer category = dto.getBookCategoryId();
+        boolean usable = dto.isUsable();
         List<BookDto> bookDtoList = new ArrayList<>();
 
         Query query1 = entityManager.createNativeQuery(BookNativeSql.GET_SEARCH_BOOKS, Book.class);
         if("".equals(bookName)){
             bookName = null;
         }
+
+        if ("".equals(author)) {
+            author = null;
+        }
         query1.setParameter("bookName",bookName);
         query1.setParameter("bookNameExpression","%"+bookName+"%");
+        query1.setParameter("author",author);
+        query1.setParameter("authorExpression","%"+author+"%");
+        query1.setParameter("category",category);
+        query1.setParameter("usable",usable);
         query1.setParameter("startNumber",(pageNumber-1)*PAGE_SIZE);
         query1.setParameter("pageSize",PAGE_SIZE);
         List<Book> bookList = query1.getResultList();
 
 
         //get total page
-        List<Book> bookAll ;
-        if(null==bookName|| "".equals(bookName)){
-            bookAll = bookRepository.findAll();
-        } else{
-            bookAll = bookRepository.findByBookNameLike(bookName);
-        }
-        Double count = null!=bookAll?Double.valueOf(bookAll.size()+""):0;
-        Integer lastPageNumber = (int) Math.ceil(count/PAGE_SIZE);;
+        Query queryCount = entityManager.createNativeQuery(BookNativeSql.GET_SEARCH_BOOKS_COUNT);
+        queryCount.setParameter("bookName",bookName);
+        queryCount.setParameter("bookNameExpression","%"+bookName+"%");
+        queryCount.setParameter("author",author);
+        queryCount.setParameter("authorExpression","%"+author+"%");
+        queryCount.setParameter("category",category);
+        queryCount.setParameter("usable",usable);
+        BigInteger count = (BigInteger)queryCount.getResultList().get(0);
+
+        Integer lastPageNumber = (int) Math.ceil((double)count.intValue()/PAGE_SIZE);;
 
 
         for(Book book : bookList){
@@ -205,6 +218,13 @@ public class DashboardServiceImpl implements DashboardService {
         bookPageDto.setFileServerPrefix(FILE_SERVER_PREFIX);
 
         return bookPageDto;
+    }
+
+    @Override
+    public CategoryBookPageDto searchByBookName(String bookName,Integer pageNumber) {
+        BookDto dto = new BookDto();
+        dto.setBookName(bookName);
+        return searchByBookDto(dto,pageNumber);
     }
 
     private List<Book> getTopAllList(int topNumberForAllBooks){

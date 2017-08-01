@@ -40,6 +40,18 @@ public class BookDto {
 
     private String updatedBy;
 
+    private String resourceType;
+
+    private Integer pageNumber;
+
+    public Integer getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(Integer pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
     private Map<Integer,String> categoryMap = new LinkedHashMap<>();
 
     private String fileServerPrefix;
@@ -196,5 +208,13 @@ public class BookDto {
 
     public void setUsable(boolean usable) {
         this.usable = usable;
+    }
+
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
     }
 }

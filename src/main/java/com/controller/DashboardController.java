@@ -8,6 +8,7 @@ import com.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,8 +22,10 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 
 @Controller
@@ -153,17 +156,21 @@ public class DashboardController {
         return null;
     }
 
-    @RequestMapping(value="/management.action",method= RequestMethod.GET)
-    public String management(@RequestParam(value = "bookName", required = false) String bookName,@RequestParam("pageNumber")Integer pageNumber,Model model){
-        try {
-            if(null!=bookName)
-                bookName = new String(bookName.getBytes("ISO-8859-1"), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        CategoryBookPageDto categoryPageDto = dashboardService.searchByBookName(bookName,pageNumber);
+    @RequestMapping(value="/console.action",method= RequestMethod.GET)
+    public String console(Model model){
+        BookDto bookDto = new BookDto();
+        bookDto.setPageNumber(1);
+        CategoryBookPageDto categoryPageDto = dashboardService.searchByBookDto(bookDto,bookDto.getPageNumber());
         model.addAttribute(categoryPageDto);
+        return "/home/bookManagement";
+    }
+
+    @RequestMapping(value="/management.action",method= RequestMethod.POST)
+    public String management(@ModelAttribute BookDto bookDto, Model model){
+
+        CategoryBookPageDto categoryPageDto = dashboardService.searchByBookDto(bookDto,bookDto.getPageNumber());
+        model.addAttribute(categoryPageDto);
+        model.addAttribute(bookDto);
         return "/home/bookManagement";
     }
 
